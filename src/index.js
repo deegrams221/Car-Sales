@@ -9,8 +9,8 @@ import rootReducer from './reducers';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-//  import createStore and setup a reducer
-const store = createStore(rootReducer);
+//  createStore and setup a reducer
+export const store = createStore(rootReducer);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

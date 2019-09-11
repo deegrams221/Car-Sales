@@ -7,3 +7,16 @@ const initialState = {
     {id: 4, name: 'Rear spoiler', price: 250}
   ]
 }
+
+export const storeReducer = (state = initialState, action) => {
+    console.log(action);
+    switch(action.type) {
+      // case :
+      //   return {
+      //     ...state,
+      //     store: action.payload
+      //   };
+      default:
+        return state;
+    }
+  };
