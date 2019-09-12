@@ -14,7 +14,7 @@ const AddedFeatures = props => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
     console.log("item in AddedFeatures");
-    removeFeature(item);
+    props.removeFeature(item);
   };
 
   console.log('car from AddedFeatures', car);
