@@ -4,13 +4,13 @@ import App from './App';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import rootReducer from './reducers';
+import reducer from './reducers';
 
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
 //  createStore and setup a reducer
-const store = createStore(rootReducer);
+const store = createStore(reducer);
 // const store = createStore();
 
 const rootElement = document.getElementById('root');
