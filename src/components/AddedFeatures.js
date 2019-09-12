@@ -1,19 +1,31 @@
 import React from 'react';
 
-// import {connect} from 'react-redux';
-// import {removeItem} from '../actions';
+import {connect} from 'react-redux';
+import {removeFeature} from '../actions';
 
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
   console.log('AddedFeatures', props);
+
+  let car = props.state.car;
+  let theStore = props.state.store;
+
+  const removeFeature = item => {
+    // dispatch an action here to remove an item
+    console.log("item in AddedFeatures");
+    removeFeature(item);
+  };
+
+  console.log('car from AddedFeatures', car);
+
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.car.length ? (
+      {car.features.length ? (
         <ol type="1">
-          {props.features.map(item => (
-            <AddedFeature key={item.id} feature={item} removeItem={props.removeItem} />
+          {car.features.map(item => (
+            <AddedFeature key={item.id} feature={item} removeFeature={removeFeature} />
           ))}
         </ol>
       ) : (
@@ -24,12 +36,12 @@ const AddedFeatures = props => {
 };
 
 // connecting components
-// const mapStateToProps = state => {
-//   console.log('state from mSTP in AddedFeatures: ', state);
-//   return {
-//     features: state.car.features
-//   };
-// };
+const mapStateToProps = state => {
+  console.log('state from mSTP in AddedFeatures: ', state);
+  return {
+    state
+  };
+};
 
-// export default connect(mapStateToProps,{removeItem})(AddedFeatures);
-export default AddedFeatures;
+export default connect(mapStateToProps,{removeFeature})(AddedFeatures);
+// export default AddedFeatures;

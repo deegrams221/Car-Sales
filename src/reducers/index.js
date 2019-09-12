@@ -25,7 +25,7 @@ const initialState = {
     {id: 3, name: 'Premium sound system', price: 500},
     {id: 4, name: 'Rear spoiler', price: 250}
   ]
-}
+};
 
 export const reducer = (state = initialState, action) => {
   console.log('state from reducer: ', state)
