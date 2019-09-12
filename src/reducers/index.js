@@ -27,7 +27,8 @@ const initialState = {
   ]
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
+  console.log('state from reducer: ', state)
   switch(action.type) {
     case BUY_ITEM:
       return {
@@ -37,7 +38,7 @@ const reducer = (state = initialState, action) => {
           price: state.car.price + action.payload.price,
           features: [...state.car.features, action.payload]
         },
-        store: state.store.filter(feature => ![...state.car.features.map(feature.id), action.payload.id].includes(feature.id))
+        store: state.store.filter(({id}) => ![...state.car.features.map(({id}) => id), action.payload.id].includes(id))
       }
     case REMOVE_FEATURE:
       return {
@@ -45,7 +46,7 @@ const reducer = (state = initialState, action) => {
         car: {
           ...state.car,
           price: state.car.price - action.payload.price,
-          features: state.car.features.filter(feature => feature.id !== action.payload.id)
+          features: state.car.features.filter(({id}) => ![...state.store.map(({id}) => id), action.payload.id].includes(id))
         },
         store: [...state.store, action.payload]  
       }
@@ -53,5 +54,3 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default reducer;
