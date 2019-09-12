@@ -1,27 +1,28 @@
 import React from 'react';
 
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
 const Header = props => {
   return (
     <>
       <figure className="image is-128x128">
-        <img src={props.imgOnProps} alt={props.nameOnProps} />
+        <img src={props.image} alt={props.name} />
       </figure>
-      <h2>{props.nameOnProps}</h2>
-      <p>Amount: ${props.priceOnProps}</p>
+      <h2>{props.name}</h2>
+      <p>Amount: ${props.price}</p>
     </>
   );
 };
 
 // connecting components
-const mapStateToProps = state => {
-  console.log('state from mSTP in Header: ', state);
-  return {
-    nameOnProps: state.car.name,
-    priceOnProps: state.car.price,
-    imgOnProps: state.car.image
-  };
-};
+// const mapStateToProps = state => {
+//   console.log('state from mSTP in Header: ', state);
+//   return {
+//     name: state.car.name,
+//     price: state.car.price,
+//     image: state.car.image
+//   };
+// };
 
-export default connect(mapStateToProps,{})(Header);
+// export default connect(mapStateToProps,{})(Header);
+export default Header;
